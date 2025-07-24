@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Terminal Commands</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=SolaimanLipi&display=swap');
+
+  /* বেসিক স্টাইল */
+  body {
+    margin: 0;
+    padding: 25px 40px;
+    font-family: 'SolaimanLipi', Arial, sans-serif;
+    background-color: #121212; /* গভীর কালো */
+    color: #e0e0e0;
+    user-select: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2 {
+    text-align: center;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.8);
+  }
+  h1 {
+    font-size: 3.5rem;
+    margin-bottom: 15px;
+    color: #b77aff; /* Perple */
+  }
+  h2 {
+    font-size: 2.3rem;
+    margin-top: 50px;
+    margin-bottom: 25px;
+    border-bottom: 3px solid #00ffff; /* Cyan লাইন */
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 8px;
+    color: #80d8ff; /* হালকা ব্লু */
+  }
+
+  /* সার্চ বক্স স্টাইল */
+  #searchBox {
+    display: block;
+    margin: 0 auto 50px auto;
+    width: 100%;
+    max-width: 420px;
+    padding: 14px 24px;
+    font-size: 1.2rem;
+    border-radius: 40px;
+    border: none;
+    outline: none;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
+    box-shadow: 0 0 18px #6a11cbaa;
+    transition: box-shadow 0.35s ease;
+    font-weight: 600;
+  }
+  #searchBox::placeholder {
+    color: #d1c4e9aa;
+  }
+  #searchBox:focus {
+    box-shadow: 0 0 30px #2575fc;
+  }
+
+  /* টেবিল স্টাইল */
+  table {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto 70px auto;
+    border-collapse: separate;
+    border-spacing: 0 16px;
+    background-color: #1c1c1c;
+    border-radius: 15px;
+    box-shadow:
+      0 0 20px 0 #6a11cb55,
+      inset 0 0 10px 0 #2575fc55;
+    overflow: hidden;
+    transition: box-shadow 0.5s ease;
+  }
+  table:hover {
+    box-shadow:
+      0 0 35px 5px #b77affcc,
+      inset 0 0 15px 2px #00ffffcc;
+  }
+
+  thead tr {
+    background: linear-gradient(90deg, #b77aff, #2575fc);
+    color: #121212;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+  }
+  th, td {
+    padding: 16px 24px;
+    text-align: left;
+    vertical-align: middle;
+    font-size: 1.05rem;
+  }
+
+  tbody tr {
+    background-color: #282828;
+    color: #e0e0e0;
+    border-radius: 12px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: default;
+    box-shadow: 0 0 8px #00000088;
+  }
+  tbody tr:hover {
+    background: linear-gradient(90deg, #6a11cbcc, #2575fccd);
+    color: #fff;
+    transform: translateY(-5px);
+    box-shadow:
+      0 4px 20px 0 #b77affcc,
+      0 0 12px 2px #00ffffdd;
+  }
+
+  code {
+    background-color: #3e1d99;
+    padding: 5px 12px;
+    border-radius: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.1rem;
+    color: #d1c4e9;
+    user-select: text;
+    box-shadow: 0 0 8px #6a11cbaa;
+  }
+
+  footer {
+    text-align: center;
+    margin-bottom: 20px;
+    font-style: italic;
+    color: #8a8a8aaa;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    body {
+      padding: 15px 20px;
+    }
+    h1 {
+      font-size: 2.6rem;
+    }
+    h2 {
+      font-size: 1.8rem;
+      max-width: 100%;
+      border-bottom-width: 2.5px;
+    }
+    table {
+      width: 100%;
+      margin-bottom: 50px;
+      font-size: 0.95rem;
+    }
+    th, td {
+      padding: 12px 14px;
+    }
+    #searchBox {
+      font-size: 1rem;
+      max-width: 100%;
+      padding: 12px 18px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<h1>CMD, PowerShell ও Git Bash এর গুরুত্বপূর্ণ কমান্ডসমূহ</h1>
+
+<input type="text" id="searchBox" placeholder="এখানে কমান্ড খুঁজুন..." onkeyup="searchCommands()" />
+
+<h2>১. CMD (Command Prompt) কমান্ডসমূহ</h2>
+<table id="cmdTable" role="table" aria-label="CMD Commands">
+<thead>
+  <tr>
+    <th scope="col">কমান্ড</th>
+    <th scope="col">ব্যাখ্যা (বাংলায় সহজ)</th>
+  </tr>
+</thead>
+<tbody>
+  <tr><td><code>dir</code></td><td>বর্তমান ফোল্ডারে থাকা ফাইল ও ফোল্ডারের তালিকা দেখায়।</td></tr>
+  <tr><td><code>cd</code></td><td>ফোল্ডার পরিবর্তন করে। যেমন <code>cd Documents</code> মানে Documents ফোল্ডারে যাওয়া।</td></tr>
+  <tr><td><code>md</code></td><td>নতুন ফোল্ডার তৈরি করে। যেমন <code>md newfolder</code> নতুন ফোল্ডার তৈরি করবে।</td></tr>
+  <tr><td><code>rd</code></td><td>ফোল্ডার মুছে ফেলে। যেমন <code>rd oldfolder</code>।</td></tr>
+  <tr><td><code>del</code></td><td>ফাইল মুছে ফেলার জন্য। যেমন <code>del file.txt</code>।</td></tr>
+  <tr><td><code>copy</code></td><td>ফাইল কপি করে। যেমন <code>copy file.txt d:\backup</code></td></tr>
+  <tr><td><code>move</code></td><td>ফাইল বা ফোল্ডার অন্য জায়গায় সরায়।</td></tr>
+  <tr><td><code>cls</code></td><td>কমান্ড প্রম্পট পর্দা পরিষ্কার করে।</td></tr>
+  <tr><td><code>ipconfig</code></td><td>কম্পিউটারের আইপি ঠিকানা ও নেটওয়ার্ক তথ্য দেখায়।</td></tr>
+  <tr><td><code>ping</code></td><td>ইন্টারনেটে কোনো ঠিকানায় পিং পাঠিয়ে তা চালু আছে কিনা দেখে।</td></tr>
+  <tr><td><code>exit</code></td><td>CMD বন্ধ করে।</td></tr>
+</tbody>
+</table>
+
+<h2>২. PowerShell কমান্ডসমূহ</h2>
+<table id="psTable" role="table" aria-label="PowerShell Commands">
+<thead>
+  <tr>
+    <th scope="col">কমান্ড</th>
+    <th scope="col">ব্যাখ্যা (বাংলায় সহজ)</th>
+  </tr>
+</thead>
+<tbody>
+  <tr><td><code>Get-ChildItem</code></td><td>বর্তমান ফোল্ডারের ফাইল ও ফোল্ডার দেখায় (CMD এর dir এর মত)।</td></tr>
+  <tr><td><code>Set-Location</code></td><td>ফোল্ডার পরিবর্তন করে (CMD এর cd এর মত)।</td></tr>
+  <tr><td><code>New-Item -ItemType Directory -Name "foldername"</code></td><td>নতুন ফোল্ডার তৈরি করে।</td></tr>
+  <tr><td><code>Remove-Item</code></td><td>ফাইল বা ফোল্ডার মুছে ফেলে।</td></tr>
+  <tr><td><code>Copy-Item</code></td><td>ফাইল বা ফোল্ডার কপি করে।</td></tr>
+  <tr><td><code>Move-Item</code></td><td>ফাইল বা ফোল্ডার সরায়।</td></tr>
+  <tr><td><code>Clear-Host</code></td><td>পাওয়ারশেল পর্দা পরিষ্কার করে (CMD এর cls)।</td></tr>
+  <tr><td><code>Get-Process</code></td><td>বর্তমানে চলমান প্রক্রিয়া বা প্রোগ্রামগুলো দেখায়।</td></tr>
+  <tr><td><code>Stop-Process -Name processname</code></td><td>নির্দিষ্ট প্রক্রিয়া বন্ধ করে।</td></tr>
+  <tr><td><code>Get-Help</code></td><td>কোনো কমান্ডের সাহায্যের তথ্য দেখায়।</td></tr>
+  <tr><td><code>Exit</code></td><td>PowerShell বন্ধ করে।</td></tr>
+</tbody>
+</table>
+
+<h2>৩. Git Bash কমান্ডসমূহ</h2>
+<table id="gitTable" role="table" aria-label="Git Bash Commands">
+<thead>
+  <tr>
+    <th scope="col">কমান্ড</th>
+    <th scope="col">ব্যাখ্যা (বাংলায় সহজ)</th>
+  </tr>
+</thead>
+<tbody>
+  <tr><td><code>ls</code></td><td>বর্তমান ফোল্ডারের ফাইল ও ফোল্ডারের তালিকা দেখায় (CMD এর dir এর মত)।</td></tr>
+  <tr><td><code>cd</code></td><td>ফোল্ডার পরিবর্তন করে।</td></tr>
+  <tr><td><code>mkdir</code></td><td>নতুন ফোল্ডার তৈরি করে।</td></tr>
+  <tr><td><code>rm</code></td><td>ফাইল বা ফোল্ডার মুছে ফেলে।</td></tr>
+  <tr><td><code>cp</code></td><td>ফাইল বা ফোল্ডার কপি করে।</td></tr>
+  <tr><td><code>mv</code></td><td>ফাইল বা ফোল্ডার সরায়।</td></tr>
+  <tr><td><code>clear</code></td><td>টার্মিনাল পর্দা পরিষ্কার করে।</td></tr>
+  <tr><td><code>pwd</code></td><td>বর্তমান ডিরেক্টরির সম্পূর্ণ পথ দেখায়।</td></tr>
+  <tr><td><code>git status</code></td><td>গিট রিপোজিটরির বর্তমান অবস্থা দেখায়।</td></tr>
+  <tr><td><code>git add .</code></td><td>সকল পরিবর্তিত ফাইল স্টেজ করে commit এর জন্য।</td></tr>
+  <tr><td><code>git commit -m "message"</code></td><td>পরিবর্তনগুলো একটি বার্তা সহ সংরক্ষণ করে।</td></tr>
+  <tr><td><code>git push</code></td><td>লোকাল রিপোজিটরির পরিবর্তনগুলো রিমোটে পাঠায়।</td></tr>
+  <tr><td><code>git pull</code></td><td>রিমোট রিপোজিটরি থেকে নতুন পরিবর্তন নিয়ে আসে।</td></tr>
+  <tr><td><code>exit</code></td><td>টার্মিনাল বন্ধ করে।</td></tr>
+</tbody>
+</table>
+
+<footer>
+  <p>Terminal Commands</p>
+</footer>
+
+<script>
+  function searchCommands() {
+    const input = document.getElementById('searchBox').value.toLowerCase();
+    const tables = ['cmdTable', 'psTable', 'gitTable'];
+    tables.forEach(id => {
+      const table = document.getElementById(id);
+      const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+      for(let i=0; i < rows.length; i++) {
+        const cmd = rows[i].getElementsByTagName('td')[0].textContent.toLowerCase();
+        const desc = rows[i].getElementsByTagName('td')[1].textContent.toLowerCase();
+        rows[i].style.display = (cmd.includes(input) || desc.includes(input)) ? '' : 'none';
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
